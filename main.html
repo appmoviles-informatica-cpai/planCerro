@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="format-detection" content="telephone=no" />
+<!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1" /> -->
+<meta name="viewport" content="initial-scale=1, width=device-width, height=device-height, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src * gap:; img-src * data: blob: filesystem:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+
+  <link href="lib/jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+  <link href="lib/mapea/assets/css/mapea.ol.min.css" rel="stylesheet" />
+  <link href="css/app.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="cordova.js"></script>
+  <script src="lib/jquery/jquery-1.12.1.min.js"></script>
+  <script>
+    $(document).on('mobileinit',function(){
+  	  $.mobile.changePage.defaults.changeHash = false;
+  	  $.mobile.hashListeningEnabled = false;
+  	  $.mobile.pushStateEnabled = false;
+	  });
+  </script>
+  <script src="lib/jquery/jquery.mobile-1.4.5.min.js"></script>
+  <script src="lib/mapea/js/mapea.ol.min.js "></script>
+  <script src="lib/browser-polyfill.js" type="text/javascript"></script>
+  <script src="lib/mapea/js/configuration.js "></script>
+  <script src="js/app.js"></script>
+  <script src="js/config.js"></script>
+
+
+  <title>Plan del Cerro</title>
+</head>
+
+<body>
+
+  <!-- Page: home  -->
+  <div id="home" data-role="page">
+    <div data-role="header" data-position="fixed">
+      <h3>Plan del Cerro</h3>
+      <a href="javascript:showInfo()" class="ui-btn-right ui-btn ui-btn-inline ui-btn-icon-right ui-icon-info ui-btn-icon-notext"></a>
+    </div>
+    <div role="main" class="ui-content with_background">
+      <!-- AYESA 2020 REQ6 SISTEMA DE AVISOS-->
+      <a id="alert-avisos" class="ui-btn lista-avisos" href="#avisos">Avisos. Consulta de información importante</a>
+      <!-- END AYESA 2020 REQ6 SISTEMA DE AVISOS-->
+      <a class="ui-btn ui-icon-info ui-btn-icon-right" href="#docs">Información General</a>
+      <!-- <span class="closebtn" onclick="this.style.display='none';">&times;</span> -->
+      <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">Caminos</li>
+        <li data-icon="navigation">
+          <a href="#ruta">Mapa de los caminos</a>
+        </li>
+        <li data-icon="eye">
+          <a href="#camino">Itinerarios. Horarios de paso</a>
+        </li>
+        <li data-icon="location">
+          <a href="#gps">Localización en tiempo real (GPS)</a>
+        </li>
+      </ul>
+      <!--<a class="ui-btn ui-icon-calendar ui-btn-icon-right" href="#diario">Movimiento diario</a>-->
+      <!-- <a class="ui-btn ui-icon-clock ui-btn-icon-right" href="#horas">Horarios de paso</a> -->
+    </div>    
+  </div>
+  <!-- Page: ruta  -->
+  <div id="ruta" data-role="page" class="pagemap">
+    <div data-role="header" data-position="fixed">
+      <a href="#home" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-btn-icon-left ui-alt-icon ui-nodisc-icon ui-icon-carat-l ui-btn-icon-notext"></a> <!--ui-corner-all-->
+      <h1>Mapa de los caminos</h1>
+      <div data-role="navbar">
+        <ul>
+
+          <li style="width:100% !important"><select id="dropHermandadRuta" name="dropHermandadRuta" data-shadow="false" data-mini="true" data-corners="false">
+          </select>       </li>
+          <li style="display:none"><select id="dropDiaRuta" name="dropDiaRuta" data-shadow="false" data-mini="true" data-corners="false">
+          </select></li>
+
+        </ul>
+      </div><!-- /navbar -->
+    </div>
+
+
+    <div role="main" class="ui-content">
+      <div id="mapRuta"></div>
+    </div> <!--content-->
+
+  </div><!-- fin ruta-->
+    <!-- Page: camino  -->
+    <div id="camino" data-role="page">
+      <div data-role="header" data-position="fixed">
+        <a href="#home" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-btn-icon-left ui-alt-icon ui-nodisc-icon ui-icon-carat-l ui-btn-icon-notext"></a> <!--ui-corner-all-->
+        <h3>Itinerarios. Horarios de paso</h3>
+        <div data-role="navbar">
+          <ul>
+            <li>
+              <select id="dropHermandadCamino" name="dropHermandadCamino" data-shadow="false" data-mini="true" data-corners="false">
+              </select>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div role="main" class="ui-content with_background">
+        <div data-role="collapsibleset" data-collapsed-icon="plus" data-expanded-icon="minus"
+        data-inset="true" data-corners="false" id="listCamino">
+      </div>
+      <div id="msjCamino" class="noinfo">
+      </div>
+    </div><!--content-->
+  </div><!--fin camino-->
+  <!-- Page: gps  -->
+  <div id="gps" data-role="page" class="pagemap">
+    <div data-role="header" data-position="fixed">
+      <a href="#home" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-btn-icon-left ui-alt-icon ui-nodisc-icon ui-icon-carat-l ui-btn-icon-notext"></a> <!--ui-corner-all-->
+      <h3>Localización en tiempo real (GPS)</h3>
+      <div data-role="navbar">
+        <ul>
+          <li>
+            <select id="dropHermandadGps" name="dropHermandadGps" data-shadow="false" data-mini="true" data-corners="false">
+              <option value="0">Todos los caminos</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div role="main" class="ui-content">
+   <!--AYESA 2020 REQ3C -->
+      <div id="iralli">
+        <p>
+          <a href="#">
+            <span class="location-arrow fa fa-location-arrow"></span>Llévame allí
+          </a>
+        </p>
+        <p>La ruta facilitada puede ser imprecisa</p>
+      </div>
+      <!--END AYESA 2020 REQ3C -->
+      <div id="mapGPS"></div>
+    </div>
+  </div><!--fin gps-->
+  <!-- Page: diario  -->
+  <div id="diario" data-role="page">
+    <div data-role="header" data-position="fixed">
+      <a href="#home" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-btn-icon-left ui-alt-icon ui-nodisc-icon ui-icon-carat-l ui-btn-icon-notext"></a> <!--ui-corner-all-->
+      <h3>Movimiento diario</h3>
+      <div data-role="navbar">
+        <ul>
+          <li>
+            <select id="dropDiaDiario" name="dropDiaDiario" data-shadow="false" data-mini="true" data-corners="false">
+            </select>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div role="main" class="ui-content with_background">
+
+
+     <ul data-role="listview" data-inset="true" data-corners="false" id="listDiario">
+
+     </ul>
+   </div><!--content-->
+ </div><!--fin diario-->
+ <!-- Page: mapadiario  -->
+ <div id="mapaDiario" data-role="page">
+   <div data-role="header" data-position="fixed">
+     <a href="#diario" class="ui-btn-back ui-btn ui-btn-inline ui-mini ui-btn-icon-left ui-alt-icon ui-nodisc-icon ui-icon-carat-l ui-btn-icon-notext"></a> <!--ui-corner-all-->
+     <a href="#home" class="ui-btn-home ui-btn ui-btn-inline ui-mini ui-btn-icon-home ui-alt-icon ui-nodisc-icon ui-icon-home ui-btn-icon-notext"></a> <!--ui-corner-all-->
+     <h1>Movimiento diario</h1>
+     <p class="subheader"></p>
+   </div>
+
+
+   <div role="main" class="ui-content">
+     <div id="mapDiario"></div>
+   </div> <!--content-->
+ </div><!-- fin mapadiario-->
+ <!-- Page: horas  -->
+ <div id="horas" data-role="page">
+  <div data-role="header" data-position="fixed">
+    <a href="#home" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-btn-icon-left ui-alt-icon ui-nodisc-icon ui-icon-carat-l ui-btn-icon-notext"></a> <!--ui-corner-all-->
+    <h3>Horarios de paso</h3>
+    <div data-role="navbar">
+      <ul>
+        <li>
+          <select id="dropPasos" name="dropPasos" data-shadow="false" data-mini="true" data-corners="false">
+          </select>
+        </li>
+        <li>
+          <select id="dropDiasPaso" name="dropDiasPaso" data-shadow="false" data-mini="true" data-corners="false">
+          </select>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+<div role="main" class="ui-content with_background">
+
+	<ul data-role="listview" data-inset="true" data-corners="false" id="listHoras">
+	</ul>
+
+</div><!--content-->
+</div><!--fin horas-->
+<!-- Page: diario  -->
+<div id="toponimo" data-role="page">
+  <div data-role="header" data-position="fixed">
+    <a href="#camino" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-btn-icon-left ui-alt-icon ui-nodisc-icon ui-icon-carat-l ui-btn-icon-notext"></a> <!--ui-corner-all-->
+    <a href="#home" class="ui-btn-home ui-btn ui-btn-inline ui-mini ui-btn-icon-home ui-alt-icon ui-nodisc-icon ui-icon-home ui-btn-icon-notext"></a> <!--ui-corner-all-->
+    <h3></h3>
+    <p class="subheader"></p>
+    </div>
+    <div role="main" class="ui-content">
+        <div id="iralli">
+            <p>
+              <a href="#">
+                <!-- TODO: falta icono -->
+                Llévame allí
+                <!-- <span class="location-arrow fa fa-location-arrow"></span>Llévame allí -->
+                
+              </a>
+            </p>
+            <p>La ruta facilitada puede ser imprecisa</p>
+        </div>
+      <div id="mapToponimo" class="m-mapea-container"></div>
+    </div><!--content-->
+
+  </div><!--fin toponimo-->
+<!-- Page: docs  -->
+<div id="docs" data-role="page">
+  <div data-role="header" data-position="fixed">
+    <a href="#home" class="ui-btn-home ui-btn ui-btn-inline ui-mini ui-btn-icon-home ui-alt-icon ui-nodisc-icon ui-icon-home ui-btn-icon-notext"></a> <!--ui-corner-all-->
+    <h3>Información general</h3>
+    <p class="subheader"></p>
+    </div>
+    <div role="main" class="ui-content with_background">
+      
+    </div><!--content-->
+
+  </div><!--fin docs-->
+  <div id="avisos" data-role="page">
+    <div data-role="header" data-position="fixed">
+      <a href="#home" class="ui-btn-home ui-btn ui-btn-inline ui-mini ui-btn-icon-home ui-alt-icon ui-nodisc-icon ui-icon-home ui-btn-icon-notext"></a> <!--ui-corner-all-->
+      <h3>Avisos</h3>
+      <p class="subheader"></p>
+      </div>
+      <div role="main" class="ui-content with_background">
+          
+      </div><!--content-->
+  
+    </div>
+<!-- AYESA 2020 REQ2 -->
+      <!-- Page: audiovisual  -->
+<div id="audiovisual" data-role="page">
+  <div data-role="header" data-position="fixed">
+    <a href="#docs" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-btn-icon-left ui-alt-icon ui-nodisc-icon ui-icon-carat-l ui-btn-icon-notext"></a> <!--ui-corner-all-->
+    <h3>Material audiovisual</h3>
+    <p class="subheader"></p>
+    </div>
+    <div role="main" class="ui-content with_background">
+      
+    </div><!--content-->
+</div><!--fin audiovisual-->
+<!-- END AYESA 2020 REQ2 -->
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+﻿Título (30)
+===========
+Plan Cerro
+
+Descripción breve (80)
+======================
+Caminos de las cofradías al Cerro, posición de las carretas y cofradía matriz.
+
+
+Descripción completa (4000)
+===========================
+El Plan Cerro es un plan de emergencia ante posibles riesgos por la concentración de personas y desplazamientos producidos con motivo de la Romería de Virgen de la Cabeza.
+
+Por ello, se ha desarrollado esta APP para la consulta de toda la información de los caminos, con datos de los itinerarios que recorren, lugares de paso y seguimiento en tiempo real a partir de dispositivos GPS. También es posible descargar un documento con toda la información relevante de la Romería y un plano con indicaciones del Cerro.
+
+Se realiza un seguimiento de las carretas y la cofradía matriz, con seguimiento del inicio, centro y final de las carretas que salen desde Andújar y Marmolejo.
+
+Aplicación desarrollada por la Dirección General de Política Digital, Consejería de Hacienda y Administración Pública. Junta de Andalucía.
+
+Etiquetas
+===========
+romería, Virgen de la Cabeza, cofradía, camino, recorrido, carretas, matriz, Andújar, Marmolejo, Cerro
+
+Notas de versión 2018
+=====================
+- Actualización de datos al 2018
+- Seguimiento de carretas y cofradía matriz en tiempo real
+
+Notas de versión 2019
+=====================
+- Actualización de datos al 2019
+- Reestructuración de interfaz
+- Nueva funcionalidad de avisos
+
+Sitio web
+=========
+http://juntadeandalucia.es/justiciaeinterior
+
+Correo electrónico
+==================
+app-planromero.cji@juntadeandalucia.es
