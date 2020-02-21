@@ -233,15 +233,18 @@ function cargarFechasHermandad(idHermandad) {
  */
 function cargarVideos() {
 	return getInfo(getVideos).done(function (data) {
+
+		
 		
 		
 		let pageVids = $("#audiovisual .ui-content");
 		
 		pageVids.empty();
-		if(data.videos.length>0){
+		if(data.videos!=null &&  data.videos.length>0){
+			$(".menu-item-audiovisual").css("display", "block");
 			let videos = data.videos.sort((a, b) => {
 				
-					return a.nOrden - b.nOrden	
+					return b.nOrden - a.nOrden	
 		
 			});
 
@@ -250,7 +253,8 @@ function cargarVideos() {
 			
 			//let domDoc = $("<a>").addClass("ui-btn ui-icon-arrow-d ui-btn-icon-right div-row-video");
 			let domDoc = $("<a>").addClass("ui-btn div-row-video");
-			domDoc.attr('href', `javascript:showVideo('${video.urlVideo.replace("https://www.youtube.com/watch?v=","")}')`);
+			//domDoc.attr('href', `javascript:showVideo('${video.urlVideo.replace("https://www.youtube.com/watch?v=","")}')`);
+			domDoc.attr('href', `javascript:openUrlExternal('${video.urlVideo}');`);
 			let divTitle =  $("<div>").addClass("div-title-video");
 			let divImage =  $("<div>").addClass("div-image-video");
 			let domTitle =  $("<p>").addClass("p-title-video");
@@ -271,9 +275,11 @@ function cargarVideos() {
 		let domDoc = $("<div>").addClass("no-content-message");
 		domDoc.text(noContent);
 		pageVids.append(domDoc);
+		$(".menu-item-audiovisual").css("display", "none");
 	}
 	}).fail(function (e) {
-		showError(e.error);;
+		showError(e.error);
+		$(".menu-item-audiovisual").css("display", "none");
 	});
 }
 
@@ -603,19 +609,31 @@ function updateAvisos() {
 			let divAviso = $("<div/>", {
 				"class": "lista-avisos"
 			});
+			//AYESA 2020 REQ2
 			let titAviso = $("<h4/>");
+			let fechaAviso =  $("<p/>");
 			let descAviso = $("<p/>");
 			// titAviso.text(new Date(aviso.timestamp).toLocaleString() + " - " +aviso.titulo);
-			titAviso.text(aviso.titulo);
+			//titAviso.text(aviso.fecha + "\xa0\xa0" +aviso.titulo+"Se ha alargado el título para que ocupe mas de dos líneas");
+			titAviso.addClass("titulo-aviso");
+			fechaAviso.addClass("fecha-aviso");
+			let divTituloAviso = $("<div/>");
+			divTituloAviso.addClass('div-titulo-aviso');
+			let divClear = $("<div/>");
+			//divClear.css("clear", "both");
+			titAviso.text(aviso.titulo+"Se ha alargado el título para que ocupe mas de una línea");
+			fechaAviso.text(aviso.fecha);
 			descAviso.text(aviso.descripcion);
+
+			divTituloAviso.append(titAviso).append(fechaAviso).append(divClear);
 			
-			divAviso.append(titAviso).append(descAviso);
-			//AYESA 2020 REQ2
-			if(aviso.urlVideo != null){
-				let videoAviso = $("<a/>");
-				videoAviso.attr('href', `javascript:showVideo('${aviso.urlVideo.replace("https://www.youtube.com/watch?v=","")}')`);
-				videoAviso.text("Ver el vídeo");
-				divAviso.append(videoAviso);
+			divAviso.append(divTituloAviso).append(descAviso);
+			
+			if(aviso.urlEnlace != null && aviso.tituloEnlace != null){
+				let enlaceAviso = $("<a/>");
+				enlaceAviso.attr('href', `javascript:openUrlExternal('${aviso.urlEnlace}');`);
+				enlaceAviso.text(aviso.tituloEnlace);
+				divAviso.append(enlaceAviso);
 			} 
 			//END AYESA 2020 REQ2
 			divAviso.addClass(getClassAviso(aviso.prioridad));
@@ -733,7 +751,8 @@ function bindEvents() {
 					updateAvisos();
 					break;
 				//END AYESA 2020 REQ6 Mejora sistema avisos
-				case 'audiovisual':
+				//AYESA 2020 REQ2 VIDEOS
+				case 'docs':
 					cargarVideos();
 					break;
 					//END AYESA 2020 REQ2 VIDEOS
@@ -917,7 +936,7 @@ function generarDocs() {
 
 //AYESA 2020 REQ2 Material audiovisual
 
-let domDoc = $("<a>").addClass("ui-btn ui-icon-arrow-d ui-btn-icon-right");
+let domDoc = $("<a>").addClass("ui-btn ui-icon-arrow-d ui-btn-icon-right menu-item-audiovisual");
 		domDoc.attr('href', `#audiovisual`);
 		domDoc.text("Material audivisual");
 		pageDocs.append(domDoc);

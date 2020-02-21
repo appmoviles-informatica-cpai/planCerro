@@ -13,7 +13,7 @@ var getGPS			= urlBase + "gps/";
 //AYESA 2020 REQ2 Material audiovisual
 //var getAvisos	    = urlBase + "avisos/";
 
-var getAvisos       = "https://www.mocky.io/v2/5e43b98a31000013413b00e3"
+var getAvisos       = "http://www.mocky.io/v2/5e4d25042d00006f00c0dace"
 //var getVideos	    = urlBase + "videos/";
 var getVideos	    = "https://www.mocky.io/v2/5e430be92f0000b27687fafa"
 //END AYESA 2020 REQ2 Material audiovisual

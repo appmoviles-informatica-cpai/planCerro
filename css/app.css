@@ -232,6 +232,10 @@ div.with_background {
 /* AYESA 2020 REQ2 */
 
 /* VIDEOS*/
+
+.menu-item-audiovisual{
+  display:none;
+}
 .div-row-video{
   display:flex;
   flex-direction:row;
@@ -297,6 +301,15 @@ text-align: center;
   white-space: normal !important;
 
 }
+
+/* .titulo-aviso{
+  float:left; width: 70%;
+}
+.fecha-aviso{
+  float:left; width: 28%;
+  margin-top: 22px;
+} */
+
 /** END AYESA 2020 REQ6 */
 /*AYESA 2020 REQ1 Cambio IMAGENES*/
 .image-logo-about{
