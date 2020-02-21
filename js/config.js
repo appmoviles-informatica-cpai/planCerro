@@ -15,7 +15,7 @@ var getGPS			= urlBase + "gps/";
 
 var getAvisos       = "http://www.mocky.io/v2/5e4d25042d00006f00c0dace"
 //var getVideos	    = urlBase + "videos/";
-var getVideos	    = "https://www.mocky.io/v2/5e430be92f0000b27687fafa"
+var getVideos	    = "http://www.mocky.io/v2/5e4fd94f3000007a00226bfb"
 //END AYESA 2020 REQ2 Material audiovisual
 //var getGPS			= "http://www.mocky.io/v2/56deaf14110000a303979e5c/";
 var getColor 		= urlBase + "color/"; //NO USADO
