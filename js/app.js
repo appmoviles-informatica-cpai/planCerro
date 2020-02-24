@@ -613,19 +613,15 @@ function updateAvisos() {
 			let titAviso = $("<h4/>");
 			let fechaAviso =  $("<p/>");
 			let descAviso = $("<p/>");
-			// titAviso.text(new Date(aviso.timestamp).toLocaleString() + " - " +aviso.titulo);
-			//titAviso.text(aviso.fecha + "\xa0\xa0" +aviso.titulo+"Se ha alargado el título para que ocupe mas de dos líneas");
 			titAviso.addClass("titulo-aviso");
 			fechaAviso.addClass("fecha-aviso");
 			let divTituloAviso = $("<div/>");
 			divTituloAviso.addClass('div-titulo-aviso');
-			let divClear = $("<div/>");
-			//divClear.css("clear", "both");
 			titAviso.text(aviso.titulo+"Se ha alargado el título para que ocupe mas de una línea");
 			fechaAviso.text(aviso.fecha);
 			descAviso.text(aviso.descripcion);
 
-			divTituloAviso.append(titAviso).append(fechaAviso).append(divClear);
+			divTituloAviso.append(fechaAviso).append(titAviso);
 			
 			divAviso.append(divTituloAviso).append(descAviso);
 			

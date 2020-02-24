@@ -242,6 +242,7 @@ div.with_background {
   justify-content:space-between;
   width: 98vw;
   margin: auto;
+  margin-bottom: 5px;
   word-wrap: break-word !important;
   white-space: normal !important;
   }
@@ -302,13 +303,9 @@ text-align: center;
 
 }
 
-/* .titulo-aviso{
-  float:left; width: 70%;
-}
 .fecha-aviso{
-  float:left; width: 28%;
-  margin-top: 22px;
-} */
+  text-align: right;
+} 
 
 /** END AYESA 2020 REQ6 */
 /*AYESA 2020 REQ1 Cambio IMAGENES*/
