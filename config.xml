@@ -86,6 +86,7 @@
 			<string>Se necesita acceso a la ubicación del dispositivo para establecer la posición respecto a las
 				carretas de las hermandades y mostrarla en el mapa</string>
 		</edit-config>
+		<icon src="resources/ios/icon/icon_higres.png" width="1024" height="1024" />
 		<icon src="resources/ios/icon/icon.png" width="57" height="57" />
 		<icon src="resources/ios/icon/icon@2x.png" width="114" height="114" />
 		<icon src="resources/ios/icon/icon-40.png" width="40" height="40" />
