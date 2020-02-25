@@ -183,7 +183,7 @@ function cargarDiasPaso(idPaso) {
 			$("#dropDiasPaso").append(option);
 		});
 	}).fail(function (e) {
-		showError(e.error);;
+		showError(e.error);
 	});
 }
 
@@ -283,21 +283,22 @@ function cargarVideos() {
 	});
 }
 
+//Comentado para duturos usos, habilitar tb en config
 /**
  * Muestra los vídeos en youtube si está actualizada la app y sino los abre en el navegador
  * @param {*} videoId Identificador del vídeo (No url completa, sólo el Id)
  */
-function showVideo(videoId){
-	try {
-		//Este método no funciona con CLI sólo con APK generado
-		YoutubeVideoPlayer.openVideo(videoId, function(result) { 
-			//Result se devuelve despues de volver de la aplicación de youtube, no es util de momento pero dejo el callback planteado para el futuro
+// function showVideo(videoId){
+// 	try {
+// 		//Este método no funciona con CLI sólo con APK generado
+// 		YoutubeVideoPlayer.openVideo(videoId, function(result) { 
+// 			//Result se devuelve despues de volver de la aplicación de youtube, no es util de momento pero dejo el callback planteado para el futuro
 			
-		}); 
-      } catch(e) {
-		  showDialog(errVideoPlayer, "ERROR", "error");
-      }
-}
+// 		}); 
+//       } catch(e) {
+// 		  showDialog(errVideoPlayer, "ERROR", "error");
+//       }
+// }
 //END AYESA 2020 REQ2
 
 function pintarRuta(hermandad, dia) {
@@ -617,7 +618,7 @@ function updateAvisos() {
 			fechaAviso.addClass("fecha-aviso");
 			let divTituloAviso = $("<div/>");
 			divTituloAviso.addClass('div-titulo-aviso');
-			titAviso.text(aviso.titulo+"Se ha alargado el título para que ocupe mas de una línea");
+			titAviso.text(aviso.titulo);
 			fechaAviso.text(aviso.fecha);
 			descAviso.text(aviso.descripcion);
 
