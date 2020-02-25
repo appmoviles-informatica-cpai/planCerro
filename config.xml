@@ -37,6 +37,7 @@
 	<!-- AYESA 2020 REQ2 Youtube-->
 	<!-- <plugin name="cordova-plugin-youtube-video-player" source="npm" version="2.4.0" />
 	<preference name="YouTubeDataApiKey" value="AIzaSyBu4RfZs3T-ip_0exv1TzeOxTTE5R4ELQQ" /> -->
+	<allow-navigation href="https://portavozgobierno-ondemand.shooowit.net/*" />
 	<!-- END AYESA 2020 REQ2 Youtube-->
 
 	<!-- CONFIGURACIONES GÉNÉRICAS -->

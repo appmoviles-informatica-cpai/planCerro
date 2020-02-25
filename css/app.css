@@ -295,6 +295,24 @@ width: 90vw;
 text-align: center;
 }
 
+/*Reproductor de video*/
+.div-overlay{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(33, 33, 33, 0.4);
+  z-index: 1;
+}
+
+.video-player{
+  margin:auto;
+  margin-top: 20vh;
+  text-align: center;
+  width: 100vw;
+ 
+}
+/*END Reproductor de video*/
+
 /*END AYESA 2020 REQ2 */ 
 /* AYESA 2020 REQ6 */
 #alert-avisos{

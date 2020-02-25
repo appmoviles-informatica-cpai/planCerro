@@ -254,7 +254,9 @@ function cargarVideos() {
 			//let domDoc = $("<a>").addClass("ui-btn ui-icon-arrow-d ui-btn-icon-right div-row-video");
 			let domDoc = $("<a>").addClass("ui-btn div-row-video");
 			//domDoc.attr('href', `javascript:showVideo('${video.urlVideo.replace("https://www.youtube.com/watch?v=","")}')`);
-			domDoc.attr('href', `javascript:openUrlExternal('${video.urlVideo}');`);
+			//domDoc.attr('href', `javascript:openUrlExternal('${video.urlVideo}');`);
+			domDoc.attr('href', `javascript:loadVideoPlayer('${video.urlVideo}', \'_self\');`);
+			
 			let divTitle =  $("<div>").addClass("div-title-video");
 			let divImage =  $("<div>").addClass("div-image-video");
 			let domTitle =  $("<p>").addClass("p-title-video");
@@ -281,6 +283,18 @@ function cargarVideos() {
 		showError(e.error);
 		$(".menu-item-audiovisual").css("display", "none");
 	});
+}
+
+function loadVideoPlayer(url){
+	let divVideoPlayer= '<video class="video-player" width="320" height="240" controls="" autoplay="" name="media"><source src="' + url + '" type="video/mp4"></video>';
+	let pageVids = $("#audiovisual .ui-content");
+	let overlay =  $("<div>").addClass("div-overlay");
+	overlay.append(divVideoPlayer);
+	overlay.click(function (){
+		overlay.remove();
+	});
+	pageVids.prepend(overlay);
+
 }
 
 //Comentado para duturos usos, habilitar tb en config
@@ -850,15 +864,17 @@ function openUrlExternal(url) {
 
 }
 
-$(document).ready(function () {
-	if (window.isApp) {
-		document.addEventListener("deviceready", onDeviceReady, false);
-	} else {
-		onDeviceReady();
-	}
-});
-
 //AYESA 2020 REQ11 Boton Atras 
+
+// $(document).ready(function () {
+// 	if (window.isApp) {
+// 		document.addEventListener("deviceready", onDeviceReady, false);
+// 	} else {
+// 		onDeviceReady();
+// 	}
+// });
+
+
 $(document).ready(function () {
 	if (window.isApp) {
 		document.addEventListener("deviceready", onDeviceReady, false);
