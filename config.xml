@@ -18,7 +18,7 @@
 	<access origin="geo:*" launch-external="yes" />
 	<access origin="mailto:*" launch-external="yes" />
 
-	<preference name="android-minSdkVersion" value="23" />
+	<preference name="android-minSdkVersion" value="19" />
 	<preference name="android-targetSdkVersion" value="28" />
 
 
