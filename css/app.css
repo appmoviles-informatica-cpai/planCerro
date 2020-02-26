@@ -249,7 +249,7 @@ div.with_background {
 
 .img-video{
   max-height: 8vh;
-  max-width: 20w;
+  max-width: 20vw;
   flex-grow:0;
 }
 
@@ -257,6 +257,7 @@ div.with_background {
   max-width: 60%;
   max-height: 60%;
   position: absolute;
+  margin: auto;
 }
 
 .p-title-video{
@@ -279,7 +280,7 @@ padding-left: 4vw;;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 4vw;
+  margin-left: 4vw;
 
 }
 

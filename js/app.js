@@ -1,3 +1,4 @@
+
 /***********variables globales********/
 var mapajsRuta, mapajsTopo, mapajsGPS, mapajsDiario;
 var geoJSONformat = new ol.format.GeoJSON();
@@ -234,9 +235,6 @@ function cargarFechasHermandad(idHermandad) {
 function cargarVideos() {
 	return getInfo(getVideos).done(function (data) {
 
-		
-		
-		
 		let pageVids = $("#audiovisual .ui-content");
 		
 		pageVids.empty();
@@ -265,7 +263,12 @@ function cargarVideos() {
 			domTitle.text(video.title);
 			divTitle.append(domTitle);
 			let domImg =  $("<img>").addClass("img-video");
-			domImg.attr('src', video.urlImage);
+			if( video.urlImage != null && video.urlImage != "")
+			{
+				domImg.attr('src', video.urlImage);
+			}else{
+				divImage.css("background-color", "#777777");
+			}
 			divImage.append(playImage);
 			divImage.append(domImg);
 			domDoc.append(divImage);
