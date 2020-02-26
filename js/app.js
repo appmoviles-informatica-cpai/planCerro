@@ -263,11 +263,11 @@ function cargarVideos() {
 			domTitle.text(video.title);
 			divTitle.append(domTitle);
 			let domImg =  $("<img>").addClass("img-video");
-			if( video.urlImage != null && video.urlImage != "")
+			if(false && video.urlImage != null && video.urlImage != "")
 			{
 				domImg.attr('src', video.urlImage);
 			}else{
-				divImage.css("background-color", "#777777");
+				domImg.attr('src', "img/default_video_image.jpg");
 			}
 			divImage.append(playImage);
 			divImage.append(domImg);
