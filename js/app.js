@@ -263,7 +263,7 @@ function cargarVideos() {
 			domTitle.text(video.title);
 			divTitle.append(domTitle);
 			let domImg =  $("<img>").addClass("img-video");
-			if(false && video.urlImage != null && video.urlImage != "")
+			if(video.urlImage != null && video.urlImage != "")
 			{
 				domImg.attr('src', video.urlImage);
 			}else{
