@@ -249,11 +249,11 @@ function cargarVideos() {
 		
 		$.each(videos, function (i,video) {
 			
-			//let domDoc = $("<a>").addClass("ui-btn ui-icon-arrow-d ui-btn-icon-right div-row-video");
+			
 			let domDoc = $("<a>").addClass("ui-btn div-row-video");
 			//domDoc.attr('href', `javascript:showVideo('${video.urlVideo.replace("https://www.youtube.com/watch?v=","")}')`);
-			//domDoc.attr('href', `javascript:openUrlExternal('${video.urlVideo}');`);
-			domDoc.attr('href', `javascript:loadVideoPlayer('${video.urlVideo}', \'_self\');`);
+			domDoc.attr('href', `javascript:openUrlExternal('${video.urlVideo}');`);
+			//domDoc.attr('href', `javascript:loadVideoPlayer('${video.urlVideo}', \'_self\');`);
 			
 			let divTitle =  $("<div>").addClass("div-title-video");
 			let divImage =  $("<div>").addClass("div-image-video");
@@ -273,7 +273,6 @@ function cargarVideos() {
 			divImage.append(domImg);
 			domDoc.append(divImage);
 			domDoc.append(divTitle);
-			//domDoc.append( $("<div>").addClass("div-clear"));
 			pageVids.append(domDoc);
 		});
 	}else{
@@ -288,19 +287,24 @@ function cargarVideos() {
 	});
 }
 
-function loadVideoPlayer(url){
-	let divVideoPlayer= '<video class="video-player" width="320" height="240" controls="" autoplay="" name="media"><source src="' + url + '" type="video/mp4"></video>';
-	let pageVids = $("#audiovisual .ui-content");
-	let overlay =  $("<div>").addClass("div-overlay");
-	overlay.append(divVideoPlayer);
-	overlay.click(function (){
-		overlay.remove();
-	});
-	pageVids.prepend(overlay);
+//Comentado, dejado por si se usa en web
+/**
+ * Crea un overlay con un reproductor de video y reproduce el video
+ * @param {*} url 
+ */
+// function loadVideoPlayer(url){
+// 	let divVideoPlayer= '<video class="video-player" width="320" height="240" controls="" autoplay="" name="media"><source src="' + url + '" type="video/mp4"></video>';
+// 	let pageVids = $("#audiovisual .ui-content");
+// 	let overlay =  $("<div>").addClass("div-overlay");
+// 	overlay.append(divVideoPlayer);
+// 	overlay.click(function (){
+// 		overlay.remove();
+// 	});
+// 	pageVids.prepend(overlay);
 
-}
+// }
 
-//Comentado para duturos usos, habilitar tb en config
+//Comentado para futuros usos, habilitar tb en config.xml
 /**
  * Muestra los vídeos en youtube si está actualizada la app y sino los abre en el navegador
  * @param {*} videoId Identificador del vídeo (No url completa, sólo el Id)
