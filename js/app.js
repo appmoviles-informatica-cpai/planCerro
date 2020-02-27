@@ -848,7 +848,7 @@ function bindEvents() {
 			if (h != null && h.lastPos) {
 				mapajsGPS.setCenter(h.lastPos[0] + "," + h.lastPos[1]).setZoom(zoomToPoint);
 			} else {
-				showDialog(noPosicion, "ERROR", "error");
+				showDialog(noPosicion, "AVISO", "error");
 			}
 		} else {
 			if (vectorSourceGPS.getFeatures().length > 0) {

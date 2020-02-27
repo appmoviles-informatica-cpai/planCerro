@@ -66,7 +66,7 @@ var errVideoPlayer = "No se puede reproducir el video seleccionado";
 var pendingWarningsText     = "ATENCIÓN: Hay nuevos avisos pendientes de leer";
 var noPendingWarningsText   = " Avisos. Consulta de información importante";
 //END AYESA 2020 REQ6
-var noPosicion 		= "No existe posición para la selección";
+var noPosicion 		= "En estos momentos no se encuentra disponible la ubicación por gps para el elemento seleccionado";
 var errInesperado 	= "Ha ocurrido un error inesperado. Vuelva a ejecutar la aplicación";
 var errCode = [2];
 var errMsg = ["No es posible visualizar la ruta. El desplazamiento no se realiza en carreta"];
