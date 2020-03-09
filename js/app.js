@@ -260,12 +260,12 @@ function cargarVideos() {
 			let domTitle =  $("<p>").addClass("p-title-video");
 			let playImage =  $("<img>").addClass("img-play-video");
 			playImage.attr('src', "img/play_button.png");
-			domTitle.text(video.title);
+			domTitle.text(video.titulo);
 			divTitle.append(domTitle);
 			let domImg =  $("<img>").addClass("img-video");
-			if(video.urlImage != null && video.urlImage != "")
+			if(video.urlImagen != null && video.urlImagen != "")
 			{
-				domImg.attr('src', video.urlImage);
+				domImg.attr('src', video.urlImagen);
 			}else{
 				domImg.attr('src', "img/default_video_image.jpg");
 			}
