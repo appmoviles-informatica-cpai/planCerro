@@ -62,7 +62,7 @@ M.proxy(false);
 var attrNotShow = [ "the_geom", "geom", "geometry", "_version_", "solrid", "keywords", "equipamiento"];
 /*********************** MENSAJES DE ERROR NO CONTROLADO EN LOS SERVICIOS **********************/
 //AYESA 2020 REQ5 Cambio mensaje error GPS
-var noGPS			= "No se puede determinar su posición GPS, compruebe que ha dado el permiso para acceder a su ubicación y que tiene el gps activado";
+var noGPS			= "No se han podido obtener datos de ubicación de las hermandades, inténtelo más tarde";
 //END AYESA 2020 REQ5
 //AYESA 2020 REQ2 Videos
 var noContent      = "No hay contenido publicado actualmente";

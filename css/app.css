@@ -105,7 +105,7 @@ div.with_background {
   text-align: center;
 }
 .m-dialog.info div.m-button>button, .m-dialog.info div.m-title {
-    background-color: #00853e;
+  background-color: orange;
     color: white;
 }
 /***elimino estilos de seleccionado y activo ya que no interesan****/

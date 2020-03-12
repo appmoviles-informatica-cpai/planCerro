@@ -49,9 +49,8 @@ function getInfo(url, filtro, showLoading) {
 	}).fail(function (e) {
 		//Captura de error genérica para todas las llamadas
 		//console.error(e.peticion, e.error);
-		console.error(e)
 		if(e.statusText == "timeout"){
-			showDialog(errTimeout, "AVISO", 'error');
+			showDialog(errTimeout, "AVISO", 'info');
 		}else{
 			showDialog(errInesperado, 'ERROR INESPERADO', 'error');
 		}
@@ -748,7 +747,7 @@ function bindEvents() {
 					pintarRuta($("#dropHermandadRuta").val(), $("#dropDiaRuta").val());
 					mapajsRuta.getMapImpl().updateSize();
 					//AYESA 2020 REQ5 CAmbio mensaje error GPS
-					if (vectorSourceGPS.getFeatures().length <= 0) showDialog(noGPS, 'AVISO', 'error');
+					if (vectorSourceGPS.getFeatures().length <= 0) showDialog(noGPS, 'AVISO', 'info');
 					//END AYESA 2020 REQ5 CAmbio mensaje error GPS
 					break;
 				case 'toponimo':
@@ -758,14 +757,14 @@ function bindEvents() {
 					pintarToponimo(data.options);
 					mapajsTopo.getMapImpl().updateSize();
 					//AYESA 2020 REQ5 CAmbio mensaje error GPS
-					if (vectorSourceGPS.getFeatures().length <= 0) showDialog(noGPS, 'AVISO', 'error');
+					if (vectorSourceGPS.getFeatures().length <= 0) showDialog(noGPS, 'AVISO', 'info');
 					//END AYESA 2020 REQ5 CAmbio mensaje error GPS
 					break;
 				case 'mapaDiario':
 					mapajsDiario.setBbox(vectorSourceDiario.getExtent());
 					mapajsDiario.getMapImpl().updateSize();
 					//AYESA 2020 REQ5 CAmbio mensaje error GPS
-					if (vectorSourceGPS.getFeatures().length <= 0) showDialog(noGPS, 'AVISO', 'error');
+					if (vectorSourceGPS.getFeatures().length <= 0) showDialog(noGPS, 'AVISO', 'info');
 					//END AYESA 2020 REQ5 CAmbio mensaje error GPS
 					break;
 					//AYESA 2020 REQ2 Videos
@@ -802,7 +801,7 @@ function bindEvents() {
 						//pintarGPS($("#dropHermandadGps").val());
 						mapajsGPS.getMapImpl().updateSize();
 						//AYESA 2020 REQ5 CAmbio mensaje error GPS
-						if (vectorSourceGPS.getFeatures().length <= 0) showDialog(noGPS, 'AVISO', 'error');
+						if (vectorSourceGPS.getFeatures().length <= 0) showDialog(noGPS, 'AVISO', 'info');
 						//END AYESA 2020 REQ5 CAmbio mensaje error GPS
 					});
 					break;
@@ -853,13 +852,13 @@ function bindEvents() {
 			if (h != null && h.lastPos) {
 				mapajsGPS.setCenter(h.lastPos[0] + "," + h.lastPos[1]).setZoom(zoomToPoint);
 			} else {
-				showDialog(noPosicion, "AVISO", "error");
+				showDialog(noPosicion, "AVISO", "info");
 			}
 		} else {
 			if (vectorSourceGPS.getFeatures().length > 0) {
 				mapajsGPS.setBbox(vectorSourceGPS.getExtent());
 			} else {
-				showDialog(noGPS, 'AVISO', 'error');
+				showDialog(noGPS, 'AVISO', 'info');
 			}
 		}
 	});
