@@ -36,8 +36,9 @@
 	<plugin name="cordova-plugin-whitelist" source="npm" version="1.3.3" />
 	<!-- AYESA 2020 REQ2 Youtube-->
 	<!-- <plugin name="cordova-plugin-youtube-video-player" source="npm" version="2.4.0" />
-	<preference name="YouTubeDataApiKey" value="" /> -->
+	<preference name="YouTubeDataApiKey" value="AIzaSyBu4RfZs3T-ip_0exv1TzeOxTTE5R4ELQQ" /> -->
 	<allow-navigation href="https://portavozgobierno-ondemand.shooowit.net/*" />
+	
 	<!-- END AYESA 2020 REQ2 Youtube-->
 
 	<!-- CONFIGURACIONES GÉNÉRICAS -->
@@ -51,6 +52,7 @@
 	<preference name="SuppressesLongPressGesture" value="true" />
 	<preference name="Orientation" value="portrait" />
 	<preference name="phonegap-version" value="cli-9.0.0" />
+	<preference name="loadUrlTimeoutValue" value="700000" />
 
 	<platform name="android">
 		<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">

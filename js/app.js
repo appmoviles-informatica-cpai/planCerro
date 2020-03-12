@@ -49,9 +49,14 @@ function getInfo(url, filtro, showLoading) {
 	}).fail(function (e) {
 		//Captura de error genérica para todas las llamadas
 		//console.error(e.peticion, e.error);
-		if (e.statusText) { //ES UN ERROR NO CONTROLADO
+		console.error(e)
+		if(e.statusText == "timeout"){
+			showDialog(errTimeout, "AVISO", 'error');
+		}else{
 			showDialog(errInesperado, 'ERROR INESPERADO', 'error');
 		}
+		// if (e.statusText) { //ES UN ERROR NO CONTROLADO
+		// }
 	}).always(function () {
 		$.mobile.loading().hide();
 	});
@@ -263,9 +268,9 @@ function cargarVideos() {
 			domTitle.text(video.titulo);
 			divTitle.append(domTitle);
 			let domImg =  $("<img>").addClass("img-video");
-			if(video.urlImagen != null && video.urlImagen != "")
+			if(video.urlImage != null && video.urlImage != "")
 			{
-				domImg.attr('src', video.urlImagen);
+				domImg.attr('src', video.urlImage);
 			}else{
 				domImg.attr('src', "img/default_video_image.jpg");
 			}

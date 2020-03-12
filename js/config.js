@@ -1,5 +1,11 @@
 var apikey="pl4n06";
-var urlBase = "https://ws199.juntadeandalucia.es/vcab/rest/"
+//var urlBase = "http://tomdes94.cpre.junta-andalucia.es:8080/vcab/rest/"
+//Servicio anterior
+//var urlBase = "https://ws199.juntadeandalucia.es/vcab/rest/";
+//Servicio nuevo
+var urlBase = "https://ws111.juntadeandalucia.es/vcab/rest/";
+//Producción
+//var urlBase = "https://ws040.juntadeandalucia.es/vcab/rest/";
 /************************************** SERVICIOS ****************************************/
 var getHermandades 	= urlBase + "hermandades/";
 var getDias 		= urlBase + "fechas/";
@@ -11,11 +17,11 @@ var getFechasPaso 	= urlBase + "fechas/paso/";
 var getHoras 		= urlBase + "horario/";
 var getGPS			= urlBase + "gps/";
 //AYESA 2020 REQ2 Material audiovisual
-//var getAvisos	    = urlBase + "avisos/";
+var getAvisos	    = urlBase + "avisos/";
 
-var getAvisos       = "http://www.mocky.io/v2/5e4d25042d00006f00c0dace"
-//var getVideos	    = urlBase + "videos/";
-var getVideos	    = "http://www.mocky.io/v2/5e4fd94f3000007a00226bfb"
+//var getAvisos       = "http://www.mocky.io/v2/5e4d25042d00006f00c0dace"
+var getVideos	    = urlBase + "videos/";
+//var getVideos	    = "http://www.mocky.io/v2/5e4fd94f3000007a00226bfb"
 //END AYESA 2020 REQ2 Material audiovisual
 //var getGPS			= "http://www.mocky.io/v2/56deaf14110000a303979e5c/";
 var getColor 		= urlBase + "color/"; //NO USADO
@@ -25,7 +31,7 @@ var bboxContext = [395827,4210307,411397,4225578];
 var zoomToPoint = 12;
 var updateGPS = 150; //en segundos
 var intervalAvisos = 15; //en segundos
-var timeout = 15; //en segundos. Se usa para detectar si hay algún problema con los servicios no controlado
+var timeout = 15; //en segundos. Se usa para detectar si hay algún problema con los servicios no controlado	
 const docsPDF = [
 	{
 		nombre: "Normas de regulación y ordenación del tráfico",
@@ -68,6 +74,7 @@ var noPendingWarningsText   = " Avisos. Consulta de información importante";
 //END AYESA 2020 REQ6
 var noPosicion 		= "En estos momentos no se encuentra disponible la ubicación por gps para el elemento seleccionado";
 var errInesperado 	= "Ha ocurrido un error inesperado. Vuelva a ejecutar la aplicación";
+var errTimeout = "Actualmente no es posible obtener la localización de las hermandades";
 var errCode = [2];
 var errMsg = ["No es posible visualizar la ruta. El desplazamiento no se realiza en carreta"];
 //AYESA 2020 REQ1 Cambio IMAGENES
