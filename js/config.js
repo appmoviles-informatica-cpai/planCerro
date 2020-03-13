@@ -35,27 +35,27 @@ var timeout = 15; //en segundos. Se usa para detectar si hay algún problema con
 const docsPDF = [
 	{
 		nombre: "Normas de regulación y ordenación del tráfico",
-		url: "https://ws199.juntadeandalucia.es/imgplan/NormaTraficoPlanCerro.pdf"
+		url: "https://ws040.juntadeandalucia.es/imgplan/NormaTraficoPlanCerro.pdf"
 	},
 	{
 		nombre: "Programa de la Romería",
-		url: "https://ws199.juntadeandalucia.es/imgplan/ProgramaPlanCerro.pdf"
+		url: "https://ws040.juntadeandalucia.es/imgplan/ProgramaPlanCerro.pdf"
 	},
 	{
 		nombre: "Normas Andújar",
-		url: "https://ws199.juntadeandalucia.es/imgplan/NormaAndujarPlanCerro.pdf"
+		url: "https://ws040.juntadeandalucia.es/imgplan/NormaAndujarPlanCerro.pdf"
 	},
 	{
 		nombre: "Normas Marmolejo",
-		url: "https://ws199.juntadeandalucia.es/imgplan/NormaMarmolejoPlanCerro.pdf"
+		url: "https://ws040.juntadeandalucia.es/imgplan/NormaMarmolejoPlanCerro.pdf"
 	},
 	{
 		nombre: "Recomendaciones para prevenir riesgos",
-		url: "https://ws199.juntadeandalucia.es/imgplan/RecomendacionesPlanCerro.pdf"
+		url: "https://ws040.juntadeandalucia.es/imgplan/RecomendacionesPlanCerro.pdf"
 	},
 	{
 		nombre: "Teléfonos de interés",
-		url: "https://ws199.juntadeandalucia.es/imgplan/TelefInteresPlanCerro.pdf"
+		url: "https://ws040.juntadeandalucia.es/imgplan/TelefInteresPlanCerro.pdf"
 	}
 ];
 M.proxy(false);

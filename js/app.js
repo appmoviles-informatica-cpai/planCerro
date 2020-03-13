@@ -983,7 +983,7 @@ function showDialog(message, title, severity) {
 };
 
 function showInfo() {
-	showDialog(htmlAcercade, 'Acerca de', 'info');
+	showDialog(htmlAcercade, 'Acerca de', 'acerca');
 }
 
 function showError(e) {

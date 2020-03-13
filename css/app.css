@@ -101,12 +101,17 @@ div.with_background {
 .ui-btn-icon-notext:after {
   background-color: #00853e;
 }
-.m-dialog.info div.m-message{
+.m-dialog.info, .m-dialog.acerca div.m-message{
   text-align: center;
 }
 .m-dialog.info div.m-button>button, .m-dialog.info div.m-title {
   background-color: orange;
     color: white;
+}
+
+.m-dialog.acerca div.m-button>button, .m-dialog.acerca div.m-title {
+  background-color: #00853e;
+  color: white;
 }
 /***elimino estilos de seleccionado y activo ya que no interesan****/
 .ui-btn:not(.lista-avisos):hover,
